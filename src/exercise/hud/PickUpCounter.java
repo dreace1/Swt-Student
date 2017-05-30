@@ -10,7 +10,7 @@ import edu.udo.cs.swtsf.view.ViewManager;
 
 public class PickUpCounter extends HudElement implements PlayerObserver {
 	
-	private final Class<? extends PickUp> pickUpCls; //Copy From HudPickUpCount
+	private final Class<? extends PickUp> pickUpCls; 
 	private final Class<? extends PickUp> pickUpCls2;
 	private final Class<? extends PickUp> pickUpCls3;
 
@@ -25,10 +25,9 @@ public class PickUpCounter extends HudElement implements PlayerObserver {
 
 	}
 	
-	
 	public void onPickUpCountChanged (Player player, Class<? extends PickUp> pickUpClass, int value)
 	{
-		     //Copy
+		     
 			int count = player.getPickUpCount(pickUpCls) + player.getPickUpCount(pickUpCls2) + player.getPickUpCount(pickUpCls3);
 			setText(Integer.toString(count));
 		

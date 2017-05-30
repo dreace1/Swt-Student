@@ -28,7 +28,7 @@ public class DualLaser implements EntityBehaviorStrategy{
 	// The damage dealt to each monster in the explosion
 	public static final int EXPLOSION_DAMAGE = 2;
 	// The key to press to fire the Rocket
-	public static final GameKey KEY = GameKey.F;
+	public static final GameKey KEY = GameKey.F; //this will be changed to D since I use D to control the Spaceship
 		
 	// Counts down the time until the Rocket can be used again
 	private int coolDownTimer = 200;
@@ -41,23 +41,29 @@ public class DualLaser implements EntityBehaviorStrategy{
 			coolDownTimer--;
 			return;
 		}
-		Player player = (Player) host;
+		//Player player = (Player) host;
 		
 		Game game = host.getCurrentGame();
 		// test for key press
 		if (game.isPressed(KEY)) {
 			// create Duallaser, add it to game and add cooldown
-		   // DlLaser duallaser = new DualLaser(host);
-			//game.addEntity(duallaser);
-			//coolDownTimer = COOLDOWN;
+		    DlLaser duallaser = new DlLaser(host);
+		    game.addEntity(duallaser);
+			coolDownTimer = COOLDOWN;
 		}
 	}
 	
-	public static class DlLaser extends BasicBullet {
+	public static class DlLaser extends BasicBullet{
 		
 		public DlLaser(Entity sourceEntity){
 			super(sourceEntity);
-			addHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
+			setLifeTimer(DLLASER_LIFE_TIME);
+			setSize(DLLASER_SIZE);
+			setSpeedForward(DLLASER_SPEED);
+			
+			removeHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
+			
+			
 			
 		}
 	}
@@ -68,8 +74,8 @@ public class DualLaser implements EntityBehaviorStrategy{
 	public static final GraphicalElementFactory DLLASER_SPRITE_FACTORY = 
 			(viewManager, duallaser) -> {
 				Sprite sprite = viewManager.newEntitySprite(duallaser);
-				sprite.setImageCutout(32*4, 0, 32, 32);
-				sprite.setImagePath("Laser");
+				sprite.setImageCutout(0, 0, 32, 32);
+				sprite.setImagePath("BulletBlue");
 				return sprite;
 			};
 

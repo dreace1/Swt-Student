@@ -21,8 +21,12 @@ import exercise.pickups.PickUpLife;
 import exercise.pickups.PickUpRocket;
 import exercise.pickups.PickUpSpriteFactory;
 import exercise.pickups.ScriptSpawnPickUps;
+//Task 14
 import exercise.hud.PickUpCounter;
+//Task 20
 import exercise.actions.DualLaser;
+//Task 39
+import exercise.monsters.MonsterSpeedDown;
 
 
 public class SwtStarFighter implements GameInitializer {
@@ -48,6 +52,15 @@ public class SwtStarFighter implements GameInitializer {
 				new PickUpSpriteFactory("PickUps/RocketPickUp"));
 		view.setFactoryForClass(PickUpDamage.class, 
 				new PickUpSpriteFactory("PickUps/DamagePickUp"));
+		//Task 20
+		view.setFactoryForClass(DualLaser.DlLaser.class, 
+				DualLaser.DLLASER_SPRITE_FACTORY);
+		
+		//Task 39
+		view.setFactoryForClass(MonsterSpeedDown.class,
+				new MonsterSpriteFactory("Monsters/BlueMonster", 2, 800));
+		
+		
 	}
 	
 	public void atGameStart(ViewManager view, Game game) {
@@ -105,7 +118,7 @@ public class SwtStarFighter implements GameInitializer {
 		view.addHudElement(pickUpCounter);
 		
 		//These should add the Duallaser to the Player for Task 20
-		//player.addBehaviorStrategy(new DualLaser());
+		player.addBehaviorStrategy(new DualLaser());
 		
 		
 		
