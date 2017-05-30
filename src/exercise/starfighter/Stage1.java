@@ -16,7 +16,7 @@ public class Stage1 extends SpawnMonsters {
 		setMonsterFactory((g) -> new MonsterEasy());
 		
 		//Task 39
-		setMonsterFactory((e) -> new MonsterSpeedDown());
+		//setMonsterFactory((e) -> new MonsterSpeedDown());
 		
 		setReactionAfterAllMonstersAreDead(g -> {
 			g.addScript(new Stage2());
