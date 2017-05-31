@@ -95,7 +95,7 @@ public class Player extends Target {
 		setSize(32);
 		setPosition(200, 200);
 		setMaxHitpoints(100);
-		setHitpoints(5);
+		setHitpoints(100); //was 5 set to 100 for testing
 		
 		addBehaviorStrategy(new ShootLaserAction());
 		addBehaviorStrategy(new MovePlayerAction());
