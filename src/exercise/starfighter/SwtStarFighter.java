@@ -113,7 +113,7 @@ public class SwtStarFighter implements GameInitializer {
 		
 		//Code for the exercise
 		//These should Display the PickUpCounter for Task 14
-		PickUpCounter pickUpCounter = new PickUpCounter(PickUpRocket.class, PickUpLife.class, PickUpDamage.class);
+		PickUpCounter pickUpCounter = new PickUpCounter(PickUpLife.class, PickUpRocket.class, PickUpDamage.class);
 	    player.addPlayerObserver(pickUpCounter);
 		view.addHudElement(pickUpCounter);
 		
