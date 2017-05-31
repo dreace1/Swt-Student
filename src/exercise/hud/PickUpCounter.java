@@ -20,16 +20,23 @@ public class PickUpCounter extends HudElement implements PlayerObserver {
 	{
 		super(HudElementOrientation.TOP, "HUD/Counter", 0, 0, 32, 32);
 		pickUpCls = pickUpClass;
-		pickUpCls2 = pickUpClass;
-		pickUpCls3 = pickUpClass;
+		pickUpCls2 = pickUpClass2;
+		pickUpCls3 = pickUpClass3;
 
 	}
 	
 	public void onPickUpCountChanged (Player player, Class<? extends PickUp> pickUpClass, int value)
 	{
-		     
+		if(value > 0)
+		{
 			int count = player.getPickUpCount(pickUpCls) + player.getPickUpCount(pickUpCls2) + player.getPickUpCount(pickUpCls3);
 			setText(Integer.toString(count));
+		}
+		else if(value == 0)
+		{
+			setText(Integer.toString(0));
+		}
+		
 		
 	
 	}
@@ -38,6 +45,8 @@ public class PickUpCounter extends HudElement implements PlayerObserver {
 	
 	protected void afterAdded(ViewManager view, Game game) { //sets the counter to zero at the start
 		onPickUpCountChanged(game.getPlayer(), pickUpCls, 0);
+		onPickUpCountChanged(game.getPlayer(), pickUpCls2, 0);
+		onPickUpCountChanged(game.getPlayer(), pickUpCls3, 0);
 	}
 	
 	
