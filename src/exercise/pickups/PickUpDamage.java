@@ -8,6 +8,7 @@ public class PickUpDamage extends PickUp {
 	
 	public void onPickUp(Player player) {
 		player.addLaserUpgrade(new LaserUpgradeDamage());
+		super.onPickUp(player);
 	}
 	
 }

@@ -7,6 +7,7 @@ public class PickUpLife extends PickUp {
 	
 	protected void onPickUp(Player player) {
 		player.addHitpoints(1);
+		super.onPickUp(player);
 	}
 	
 }
