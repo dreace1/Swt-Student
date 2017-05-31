@@ -37,8 +37,8 @@ public class PickUpCounter extends HudElement implements PlayerObserver {
 			setText(Integer.toString(0));
 		}
 		
+		//Bug for some reason the counter starts at 1 but displays zero
 		
-	
 	}
 	
 	
