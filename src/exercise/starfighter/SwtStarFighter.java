@@ -55,6 +55,9 @@ public class SwtStarFighter implements GameInitializer {
 		//Task 20
 		view.setFactoryForClass(DualLaser.DlLaser.class, 
 				DualLaser.DLLASER_SPRITE_FACTORY);
+		view.setFactoryForClass(DualLaser.DlLaser2.class, 
+				DualLaser.DLLASER_SPRITE_FACTORY2);
+		
 		
 		//Task 39
 		view.setFactoryForClass(MonsterSpeedDown.class,
