@@ -1,17 +1,13 @@
 package exercise.actions;
 
-import apple.laf.JRSUIConstants.SegmentPosition;
-import edu.udo.cs.swtsf.core.Bullet;
+
 import edu.udo.cs.swtsf.core.player.BasicBullet;
 import edu.udo.cs.swtsf.core.Entity;
 import edu.udo.cs.swtsf.core.EntityBehaviorStrategy;
 import edu.udo.cs.swtsf.core.Game;
 import edu.udo.cs.swtsf.core.GameKey;
-import edu.udo.cs.swtsf.core.Target;
-import edu.udo.cs.swtsf.core.player.Player;
 import edu.udo.cs.swtsf.view.GraphicalElementFactory;
 import edu.udo.cs.swtsf.view.Sprite;
-import exercise.starfighter.Explosion;
 
 public class DualLaser implements EntityBehaviorStrategy{
 	
@@ -41,7 +37,6 @@ public class DualLaser implements EntityBehaviorStrategy{
 			coolDownTimer--;
 			return;
 		}
-		Player player = (Player) host;
 		
 		Game game = host.getCurrentGame();
 		// test for key press
