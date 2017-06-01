@@ -1,5 +1,6 @@
 package exercise.actions;
 
+import apple.laf.JRSUIConstants.SegmentPosition;
 import edu.udo.cs.swtsf.core.Bullet;
 import edu.udo.cs.swtsf.core.player.BasicBullet;
 import edu.udo.cs.swtsf.core.Entity;
@@ -30,7 +31,6 @@ public class DualLaser implements EntityBehaviorStrategy{
 	// The key to press to fire the Rocket
 	public static final GameKey KEY = GameKey.F; //this will be changed to D since I use D to control the Spaceship
 		
-	// Counts down the time until the Rocket can be used again
 	private int coolDownTimer = 200;
 		
 	// Called once in each update cycle. The host is typically the Player 
@@ -41,32 +41,55 @@ public class DualLaser implements EntityBehaviorStrategy{
 			coolDownTimer--;
 			return;
 		}
-		//Player player = (Player) host;
+		Player player = (Player) host;
 		
 		Game game = host.getCurrentGame();
 		// test for key press
 		if (game.isPressed(KEY)) {
 			// create Duallaser, add it to game and add cooldown
 		    DlLaser duallaser = new DlLaser(host);
+		    DlLaser2 duallaser2 = new DlLaser2(host); //test		    
 		    game.addEntity(duallaser);
+		    game.addEntity(duallaser2);
+		   
+		    
+		    
 			coolDownTimer = COOLDOWN;
 		}
 	}
 	
-	public static class DlLaser extends BasicBullet{
+	public static class DlLaser extends BasicBullet{ 
 		
 		public DlLaser(Entity sourceEntity){
 			super(sourceEntity);
 			setLifeTimer(DLLASER_LIFE_TIME);
 			setSize(DLLASER_SIZE);
 			setSpeedForward(DLLASER_SPEED);
-			
-			removeHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
-			
+			addHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
 			
 			
+
+			setSpeedDirectional(sourceEntity.getRotation()+15, DLLASER_SPEED);
+
 		}
 	}
+	
+	public static class DlLaser2 extends BasicBullet{
+		
+		public DlLaser2(Entity sourceEntity){
+			super(sourceEntity);
+			setLifeTimer(DLLASER_LIFE_TIME);
+			setSize(DLLASER_SIZE);
+			setSpeedForward(DLLASER_SPEED);
+			addHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
+			
+			setSpeedDirectional(sourceEntity.getRotation()+30, DLLASER_SPEED);		    
+
+			
+				
+		}
+	}
+	
 	
 	
 	
@@ -76,6 +99,14 @@ public class DualLaser implements EntityBehaviorStrategy{
 				Sprite sprite = viewManager.newEntitySprite(duallaser);
 				sprite.setImageCutout(0, 0, 32, 32);
 				sprite.setImagePath("BulletBlue");
+				return sprite;
+			};
+			
+	public static final GraphicalElementFactory DLLASER_SPRITE_FACTORY2 = 
+			(viewManager, duallaser2) -> {
+				Sprite sprite = viewManager.newEntitySprite(duallaser2);
+				sprite.setImageCutout(0, 0, 32, 32);
+				sprite.setImagePath("BulletGreen");
 				return sprite;
 			};
 
