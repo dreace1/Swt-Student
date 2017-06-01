@@ -1,10 +1,10 @@
 package exercise.monsters;
 
 import edu.udo.cs.swtsf.core.Target;
+import edu.udo.cs.swtsf.core.TargetObserver;
 
 
 
-//for test purposes
 
 public class MonsterSpeedDown extends AbstractMonster{
 	
@@ -18,24 +18,13 @@ public class MonsterSpeedDown extends AbstractMonster{
 		acceleration = 0.5;
 		
 	    addDefaultStrategies();
+	    addTargetObserver(new TargetObserver() { 
+	    	public void onAfterHitpointsChanged(Target target, int delta) {
+	    		
+	    		maxSpeed -= 0.5;
+	    	}
+	    	
+		});
 
 	}
-	
-	//public void onPlayerHitTarget(Player player, Target target) {
-		
-		//acceleration = -0.5;
-		
-	//}
-	
-	public void onAfterHitpointsChanged(Target target, int delta) {
-		
-		maxSpeed -= 0.5;
-		
-		
-		
-	}
-
-	
-	
-
 }
