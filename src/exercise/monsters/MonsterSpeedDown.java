@@ -18,7 +18,7 @@ public class MonsterSpeedDown extends AbstractMonster{
 		acceleration = 0.5;
 		
 	    addDefaultStrategies();
-	    addTargetObserver(new TargetObserver() { 
+	    addTargetObserver(new TargetObserver() { //adds a Target Observer into the Monster 
 	    	public void onAfterHitpointsChanged(Target target, int delta) {
 	    		
 	    		maxSpeed -= 0.5;
