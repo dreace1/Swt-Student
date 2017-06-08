@@ -23,7 +23,7 @@ public class DualLaser implements EntityBehaviorStrategy{
 	// The key to press to fire the Duallaser
 	public static final GameKey KEY = GameKey.F; //this will be changed to D since I use D to control the Spaceship
 		
-	private int coolDownTimer = 200;
+	private int coolDownTimer = 0;
 		
 	
 	public void act(Entity host) {
@@ -48,7 +48,7 @@ public class DualLaser implements EntityBehaviorStrategy{
 		}
 	}
 	
-	public static class DlLaser extends BasicBullet{ 
+	public static class DlLaser extends BasicBullet{ //added image DlLaser.png which looks like BulletBlue.png
 		
 		public DlLaser(Entity sourceEntity){
 			super(sourceEntity);
@@ -57,12 +57,12 @@ public class DualLaser implements EntityBehaviorStrategy{
 			setSpeedForward(DLLASER_SPEED);
 			addHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
 			
-			setSpeedDirectional(sourceEntity.getRotation()+15, DLLASER_SPEED);
+			setSpeedDirectional(sourceEntity.getRotation()-15, DLLASER_SPEED);
 
 		}
 	}
 	
-	public static class DlLaser2 extends BasicBullet{
+	public static class DlLaser2 extends BasicBullet{ //added image DlLaser2.png which looks like BulletGreen.png
 		
 		public DlLaser2(Entity sourceEntity){
 			super(sourceEntity);
@@ -71,7 +71,7 @@ public class DualLaser implements EntityBehaviorStrategy{
 			setSpeedForward(DLLASER_SPEED);
 			addHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
 			
-			setSpeedDirectional(sourceEntity.getRotation()+30, DLLASER_SPEED);		    
+			setSpeedDirectional(sourceEntity.getRotation()+15, DLLASER_SPEED);		    
 
 			
 				

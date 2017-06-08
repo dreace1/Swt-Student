@@ -29,21 +29,20 @@ public class PickUpCounter extends HudElement implements PlayerObserver {
 	{
 		if(value > 0)
 		{
-			int count = player.getPickUpCount(pickUpCls) + player.getPickUpCount(pickUpCls2) + player.getPickUpCount(pickUpCls3);
+			int count = player.getPickUpCount(pickUpCls) + player.getPickUpCount(pickUpCls2) + player.getPickUpCount(pickUpCls3)-1; //-1 because the counter has already one PickUpRocket at the start of the Game
 			setText(Integer.toString(count));
 		}
-		else if(value == 0)
+		else if(value == 0) //sets the counter to zero at the start
 		{
 			setText(Integer.toString(0));
 		}
 		
-		//Bug for some reason the counter starts at 1 but displays zero
 		
 	}
 	
 	
 	
-	protected void afterAdded(ViewManager view, Game game) { //sets the counter to zero at the start
+	protected void afterAdded(ViewManager view, Game game) {
 		onPickUpCountChanged(game.getPlayer(), pickUpCls, 0);
 		onPickUpCountChanged(game.getPlayer(), pickUpCls2, 0);
 		onPickUpCountChanged(game.getPlayer(), pickUpCls3, 0);

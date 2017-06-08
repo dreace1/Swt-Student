@@ -108,8 +108,8 @@ public class SwtStarFighter implements GameInitializer {
 		// This script will create PickUps for the Player after destroying enough monsters
 		ScriptSpawnPickUps spawnPickUps = new ScriptSpawnPickUps();
 		spawnPickUps.definePickUp( 100,	g -> new PickUpLife());		// every 450 score spawn life +1
-		spawnPickUps.definePickUp( 150,	g -> new PickUpRocket());	// every 750 score spawn rockets
-		spawnPickUps.definePickUp(1000,	g -> new PickUpDamage());	// every 1000 score spawn a laser upgrade for damage
+		spawnPickUps.definePickUp( 200,	g -> new PickUpRocket());	// every 750 score spawn rockets
+		spawnPickUps.definePickUp(150,	g -> new PickUpDamage());	// every 1000 score spawn a laser upgrade for damage
 		game.getPlayer().addPlayerObserver(spawnPickUps);
 		
 		
