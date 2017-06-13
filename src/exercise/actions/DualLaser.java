@@ -21,7 +21,7 @@ public class DualLaser implements EntityBehaviorStrategy{
 	// The size of the Duallaser
 	public static final int DLLASER_SIZE = 16;
 	// The key to press to fire the Duallaser
-	public static final int DLLASER_DAMAGE = 1;
+	public static final int DLLASER_DAMAGE = 2;
 	public static final GameKey KEY = GameKey.F; //this will be changed to D since I use D to control the Spaceship
 		
 	private int coolDownTimer = 0;
