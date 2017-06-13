@@ -21,6 +21,7 @@ public class DualLaser implements EntityBehaviorStrategy{
 	// The size of the Duallaser
 	public static final int DLLASER_SIZE = 16;
 	// The key to press to fire the Duallaser
+	public static final int DLLASER_DAMAGE = 1;
 	public static final GameKey KEY = GameKey.F; //this will be changed to D since I use D to control the Spaceship
 		
 	private int coolDownTimer = 0;
@@ -55,6 +56,7 @@ public class DualLaser implements EntityBehaviorStrategy{
 			setLifeTimer(DLLASER_LIFE_TIME);
 			setSize(DLLASER_SIZE);
 			setSpeedForward(DLLASER_SPEED);
+			setDamage(DLLASER_DAMAGE);
 			addHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
 			
 			setSpeedDirectional(sourceEntity.getRotation()-15, DLLASER_SPEED);
@@ -69,6 +71,7 @@ public class DualLaser implements EntityBehaviorStrategy{
 			setLifeTimer(DLLASER_LIFE_TIME);
 			setSize(DLLASER_SIZE);
 			setSpeedForward(DLLASER_SPEED);
+			setDamage(DLLASER_DAMAGE);
 			addHitStrategy(BULLET_SELF_DESTRUCT_ON_HIT_STRAT);
 			
 			setSpeedDirectional(sourceEntity.getRotation()+15, DLLASER_SPEED);		    
